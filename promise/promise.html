@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ppp = new Promise(function (a, b) {
+        console.log('1');
+        a();
+    })
+    ppp.then(function (a, b) {
+        console.log('2');
+    }).then(function () {
+                console.log('3')
+            }
+    ).then(function () {
+        console.log('5');
+    });
+    console.log('4');
+    //promise是一个构造函数 需要new promise对象进行调用
+    //在promise上下文的全局的方法会优先于promise.then执行
+    /*
+     then方法可以被同一个promise调用多次
+     promise基本原理
+     promise提供一个执行队列，当promise状态改变时，执行promise回调函数
+     （失败或者成功），每执行一次then函数，均会创建一个队列数组并递归执行
+     */
+
+    /*
+     成功执行 resolve函数
+     失败执行 reject函数
+     */
+
+    //    promise可以串行可以并行  promise.all(接受一个数组，数组内的所有对象为fulfilled时 调用then，
+    // 一旦有一个对象为rejected 调用catch方法)
+
+    //    promise.catch(onRejected) 就是 promise.then(null, onRejected) 的语法糖。
+
+    /*
+    基本调用方式
+    1. 声明一个promise对象，声明resolve和rejected方法体
+    2. 用promise对象调用then方法
+    then方法接受两个参数 分别为fulfilled状态的回调和rejected状态的回调方法
+    */
+</script>
+<script>
+
+</script>
+</body>
+</html>
